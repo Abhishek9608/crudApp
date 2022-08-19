@@ -1,5 +1,6 @@
 import { AppThunk } from "./index";
 import {ActionTypes} from './actionTypes'
+import { data } from "../types";
 
 export const fetchPosts = () : AppThunk  =>{
   return (dispatch, getState) => {
@@ -15,11 +16,38 @@ export const fetchPosts = () : AppThunk  =>{
   };
 }
 
-export const addPost = (data : {title:string, description: string}): AppThunk => {
+export const addPost = (data : data): AppThunk => {
   return (dispatch) => {
     fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     body: JSON.stringify(data)
+  })
+    .then((response) => response.json())
+    .then((json) =>{
+      dispatch(fetchPosts())
+    });
+  }
+}
+
+export const editPost = (data : data, id:number | undefined): AppThunk => {
+  return (dispatch) => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(data)
+  })
+    .then((response) => response.json())
+    .then((json) =>{
+      dispatch(fetchPosts())
+    });
+  }
+}
+
+
+export const deletePost = (id : number): AppThunk => {
+  return (dispatch) => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: 'DELETE',
+    // body: JSON.stringify(id)
   })
     .then((response) => response.json())
     .then((json) =>{

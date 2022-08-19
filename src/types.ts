@@ -4,3 +4,8 @@ export type post = {
     title: string;
     userId: number
 }
+
+export type data = {    
+    title: string;    
+    body: string;
+}

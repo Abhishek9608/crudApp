@@ -1,0 +1,6 @@
+export enum ActionTypes {
+  ADD_POST = "ADD_POST",
+  DELETE_POST = "DELETE_POST",
+  UPDATE_POST = "UPDATE_POST",
+  GET_POSTS = "GET_POSTS"
+}

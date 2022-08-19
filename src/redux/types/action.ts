@@ -1,3 +1,4 @@
+import { post } from "../../types";
 import { ActionTypes } from "../actionTypes";
 
 interface AddPost {
@@ -15,7 +16,7 @@ interface UpdatePost {
 
 interface GetPosts {
   type: ActionTypes.GET_POSTS;
-  posts: Array<Record<string, unknown>>
+  posts: Array<post>
 }
 
 export type PostsAction = 

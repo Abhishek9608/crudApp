@@ -1,8 +1,9 @@
 import { PostsAction } from "./types/action";
 import { ActionTypes } from "./actionTypes";
+import { post } from "../types";
 
 interface stateType {
-  posts: Array<Record<string, unknown>>
+  posts: Array<post>
 }
 
 const initialState: stateType = {

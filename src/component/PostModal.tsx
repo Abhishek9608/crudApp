@@ -49,7 +49,7 @@ export default function PostModal(props: PostModalProps) {
   } 
 
   return (
-    <div>
+    <div role="modal">
       <Modal
         open={open}
         onClose={handleClose}
@@ -64,6 +64,7 @@ export default function PostModal(props: PostModalProps) {
             aria-label="minimum height"
             minRows={3}
             name="title"
+            data-testid='title'
             value={data.title}
             placeholder="Minimum 3 rows"
             style={{ width: 400 }}
@@ -76,6 +77,7 @@ export default function PostModal(props: PostModalProps) {
             aria-label="minimum height"
             minRows={3}
             name="body"
+            data-testid='body'
             value={data.body}
             placeholder="Minimum 3 rows"
             style={{ width: 400 }}
